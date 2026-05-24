@@ -28,7 +28,7 @@ struct ContentView: View {
 
             VStack(spacing: 12) {
                 Button {
-                    print("Add button tapped")
+//                     print("Add button tapped")
                     addNumbers()
                 } label: {
                     Text("Add")
@@ -38,7 +38,7 @@ struct ContentView: View {
                 .buttonStyle(.borderedProminent)
 
                 Button {
-                    print("Subtract button tapped")
+//                     print("Subtract button tapped")
                     subtractNumbers()
                 } label: {
                     Text("Subtract")
@@ -61,20 +61,24 @@ struct ContentView: View {
         }
         .padding()
         .onAppear {
-            print("ContentView appeared")
-            print("Initial firstNumber: \(firstNumber)")
-            print("Initial secondNumber: \(secondNumber)")
-            print("Initial result: \(result)")
+//             print("ContentView appeared")
+//             print("Initial firstNumber: \(firstNumber)")
+//             print("Initial secondNumber: \(secondNumber)")
+//             print("Initial result: \(result)")
         }
     }
 
     private func addNumbers() {
+        #if DEBUG
         print("addNumbers() started")
         print("Raw firstNumber input: \(firstNumber)")
         print("Raw secondNumber input: \(secondNumber)")
+        #endif
 
         guard let firstValue = Double(firstNumber) else {
+            #if DEBUG
             print("Failed to convert firstNumber to Double")
+            #endif
             result = "Invalid input"
             print("Result updated to: \(result)")
             return
@@ -131,36 +135,36 @@ struct ContentView: View {
     }
 
     // Declared but not used
-    private func multiplyNumbers() {
-        print("multiplyNumbers() started")
-        print("Raw firstNumber input: \(firstNumber)")
-        print("Raw secondNumber input: \(secondNumber)")
-
-        guard let firstValue = Double(firstNumber) else {
-            print("Failed to convert firstNumber to Double")
-            result = "Invalid input"
-            print("Result updated to: \(result)")
-            return
-        }
-
-        print("firstNumber converted successfully: \(firstValue)")
-
-        guard let secondValue = Double(secondNumber) else {
-            print("Failed to convert secondNumber to Double")
-            result = "Invalid input"
-            print("Result updated to: \(result)")
-            return
-        }
-
-        print("secondNumber converted successfully: \(secondValue)")
-
-        let total = firstValue * secondValue
-        print("Multiplication result before formatting: \(total)")
-
-        result = formatResult(total)
-        print("Formatted multiplication result: \(result)")
-        print("multiplyNumbers() finished")
-    }
+//     private func multiplyNumbers() {
+//         print("multiplyNumbers() started")
+//         print("Raw firstNumber input: \(firstNumber)")
+//         print("Raw secondNumber input: \(secondNumber)")
+// 
+//         guard let firstValue = Double(firstNumber) else {
+//             print("Failed to convert firstNumber to Double")
+//             result = "Invalid input"
+//             print("Result updated to: \(result)")
+//             return
+//         }
+// 
+//         print("firstNumber converted successfully: \(firstValue)")
+// 
+//         guard let secondValue = Double(secondNumber) else {
+//             print("Failed to convert secondNumber to Double")
+//             result = "Invalid input"
+//             print("Result updated to: \(result)")
+//             return
+//         }
+// 
+//         print("secondNumber converted successfully: \(secondValue)")
+// 
+//         let total = firstValue * secondValue
+//         print("Multiplication result before formatting: \(total)")
+// 
+//         result = formatResult(total)
+//         print("Formatted multiplication result: \(result)")
+//         print("multiplyNumbers() finished")
+//     }
 
     // Declared but not used
     private func divideNumbers() {
