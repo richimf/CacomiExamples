@@ -36,6 +36,7 @@ Examples/SwiftExamples/CalculatorDemo
 Examples/ObjectiveCExamples/CalculatorOld
 
 ```
+**You can review all features at the same time** by scanning the folder: `multilanguage_examples`.
 
 
 ## Screenshots 
@@ -70,4 +71,16 @@ Objective-C log results can be previewed, commented, deleted, or wrapped in debu
 ![Print and Log Results](screenshots/7.png)
 
 ![Wrap Logs and Undo](screenshots/8.png)
+
+### 7. The app can look for static security issues.
+
+Cacomi also supports static security scanning to help you identify common risky patterns directly inside your project.
+
+The Security tab can detect potential issues such as hardcoded secrets, unsafe APIs, insecure network usage, risky debug code, and other patterns that may need review before release. Results are grouped by file, with a code preview so you can quickly inspect each finding and decide what to fix.
+
+This feature is designed as a lightweight static analysis helper for developers. It does not replace a full security audit, but it helps you catch obvious issues early while cleaning and reviewing your code.
+
+![Security Results](screenshots/9.png)
+
+![Security Code Preview](screenshots/10.png)
 
