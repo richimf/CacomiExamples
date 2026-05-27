@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#F1ECE4" />
+<title>Cacomi — Cleaner code. Quieter logs. Safer ships.</title>
+<meta name="description" content="A macOS static analyzer that detects unused code, noisy debug logs and security risks across Swift, SwiftUI, Objective-C, Python, Kotlin, JavaScript, C/C++ and more." />
+
+<meta property="og:title" content="Cacomi — Cleaner code. Quieter logs. Safer ships." />
+<meta property="og:description" content="Detect unused code, noisy debug logs and security risks. For macOS." />
+<meta property="og:image" content="images/screenshots/unused.png" />
+<meta property="og:type" content="website" />
+
+<link rel="icon" type="image/png" href="images/icon.png" />
+<link rel="apple-touch-icon" href="images/icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand">
+      <span class="logo"><img src="images/icon.png" alt="Cacomi" /></span>
+      <span>Cacomi</span>
+    </a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#security">Security</a>
+      <a href="#languages">Languages</a>
+      <a href="#workflow">Workflow</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#download" class="btn btn-primary">
+        Download
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow">Static analysis · Unused code · Secure programming</span>
+
+      <h1>
+        <span class="l1">Cleaner code.</span>
+        <span class="l1">Quieter logs.</span>
+        <span class="l1 grad-warm">Safer ships.</span>
+      </h1>
+
+      <p class="lede">
+        Cacomi scans your project and finds unused methods, noisy debug logs and
+        security risks across Swift, SwiftUI, Objective-C, Python, Kotlin,
+        JavaScript, C/C++ and more.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#download" class="btn btn-primary btn-lg">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/>
+          </svg>
+          Download for Mac
+        </a>
+        <a href="#features" class="btn btn-ghost btn-lg">
+          See features
+        </a>
+      </div>
+
+      <div class="hero-meta">
+        <span class="dot"></span>
+        <span>macOS 13+ · Universal · 100% local</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="shot shot-1">
+        <img src="images/screenshots/logs.png" alt="Cacomi scan results — debug logs grouped per file" />
+      </div>
+      <div class="shot shot-2">
+        <img src="images/screenshots/sec-secret.png" alt="Security scanner finding a hardcoded password" />
+      </div>
+
+      <div class="callout c-logs">
+        <span class="num">64</span><span class="lbl">print logs</span>
+      </div>
+      <div class="callout c-unused">
+        <span class="num">2</span><span class="lbl">unused methods</span>
+      </div>
+      <div class="callout c-sec">
+        <span class="num">5</span><span class="lbl">security risks</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     FEATURE 1 — Unused code
+     ============================================================ -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="feature">
+      <div class="feature-copy">
+        <span class="eyebrow">Unused code detection</span>
+        <h2>Find the methods your project <span class="grad">never calls.</span></h2>
+        <p class="lede">
+          Reference-traced static analysis flags functions, methods and properties
+          nothing else touches — across your whole codebase, not just one file.
+        </p>
+        <ul class="feature-bullets">
+          <li class="cool">
+            <span class="tick">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Reference-traced, not regex-guessed</span>
+          </li>
+          <li class="cool">
+            <span class="tick">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Comment out before you delete — confidence first</span>
+          </li>
+          <li class="cool">
+            <span class="tick">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Every action is reversible</span>
+          </li>
+        </ul>
+      </div>
+      <div class="feature-visual">
+        <img src="images/screenshots/unused.png" alt="Unused method flagged in Cacomi" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FEATURE 2 — Debug logs
+     ============================================================ -->
+<section class="section" style="padding-top: 32px;">
+  <div class="wrap">
+    <div class="feature reverse">
+      <div class="feature-copy">
+        <span class="eyebrow violet">Debug logs</span>
+        <h2>Quiet the <span class="grad">noise.</span></h2>
+        <p class="lede">
+          Every <code style="font-family:'JetBrains Mono',monospace; background:rgba(122,76,255,0.10); padding:2px 8px; border-radius:6px; font-size:0.9em">print</code>,
+          <code style="font-family:'JetBrains Mono',monospace; background:rgba(122,76,255,0.10); padding:2px 8px; border-radius:6px; font-size:0.9em">debugPrint</code> and
+          <code style="font-family:'JetBrains Mono',monospace; background:rgba(122,76,255,0.10); padding:2px 8px; border-radius:6px; font-size:0.9em">NSLog</code>
+          in your project — grouped per file, previewed and ready to wrap in
+          <code style="font-family:'JetBrains Mono',monospace; background:rgba(122,76,255,0.10); padding:2px 8px; border-radius:6px; font-size:0.9em">#if&nbsp;DEBUG</code>.
+        </p>
+        <ul class="feature-bullets">
+          <li>
+            <span class="tick">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Keep helpful logs in development</span>
+          </li>
+          <li>
+            <span class="tick">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Strip them from release builds automatically</span>
+          </li>
+          <li>
+            <span class="tick">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Built-in flags or your own — DEBUG, RELEASE, custom</span>
+          </li>
+        </ul>
+      </div>
+      <div class="feature-visual">
+        <img src="images/screenshots/logs.png" alt="Debug logs grouped per file in Cacomi" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECURITY SPOTLIGHT — NEW
+     ============================================================ -->
+<section class="section" id="security" style="padding-top: 24px;">
+  <div class="security">
+    <div class="security-inner">
+      <span class="eyebrow red">NEW · Security scanner</span>
+      <h2>Catch risky patterns <span class="grad-warm">before they ship.</span></h2>
+      <p class="lede">
+        Cacomi now performs static analysis to surface common security issues —
+        hardcoded credentials, weak crypto, certificate validation bypasses and
+        more — grouped per file with a code preview and a recommended fix.
+      </p>
+
+      <div class="sec-cards">
+        <article class="sec-card">
+          <span class="sev high">High</span>
+          <h3>Hardcoded credentials</h3>
+          <p>Catch API keys, passwords and tokens committed to source.</p>
+          <code>let password = "12345"</code>
+        </article>
+        <article class="sec-card">
+          <span class="sev high">High</span>
+          <h3>SSL validation bypassed</h3>
+          <p>Flag URLSession delegates that accept any server trust.</p>
+          <code>didReceive challenge → .useCredential</code>
+        </article>
+        <article class="sec-card">
+          <span class="sev med">Medium</span>
+          <h3>Weak cryptography</h3>
+          <p>Spot uses of MD5, SHA-1 and other deprecated algorithms.</p>
+          <code>CC_MD5(data, len, &amp;digest)</code>
+        </article>
+        <article class="sec-card">
+          <span class="sev low">Review</span>
+          <h3>Sensitive data in logs</h3>
+          <p>Surface print statements that look like they log secrets or PII.</p>
+          <code>print("Token: \(token)")</code>
+        </article>
+      </div>
+
+      <div class="security-shot">
+        <img src="images/screenshots/sec-ssl.png" alt="Security scanner finding — SSL validation bypassed" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LANGUAGES
+     ============================================================ -->
+<section class="lang-section" id="languages">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Multi-language support</span>
+      <h2>One scanner for your <span class="grad">whole codebase.</span></h2>
+      <p class="lede">
+        Cacomi reads the source you actually ship — Apple-platform projects and
+        the rest of your stack alike.
+      </p>
+    </div>
+
+    <div class="lang-grid">
+      <div class="lang-card">
+        <span class="dot" style="background:#F05138"></span>
+        <span class="name">Swift</span>
+        <span class="ext">.swift</span>
+      </div>
+      <div class="lang-card">
+        <span class="dot round" style="background:#2876FF"></span>
+        <span class="name">SwiftUI</span>
+        <span class="ext">View &amp; modifier traces</span>
+      </div>
+      <div class="lang-card">
+        <span class="dot" style="background:#7A4CFF"></span>
+        <span class="name">Objective-C</span>
+        <span class="ext">.m / .h</span>
+      </div>
+      <div class="lang-card">
+        <span class="dot" style="background:#3776AB"></span>
+        <span class="name">Python</span>
+        <span class="ext">.py</span>
+      </div>
+      <div class="lang-card">
+        <span class="dot" style="background:#7F52FF"></span>
+        <span class="name">Kotlin</span>
+        <span class="ext">.kt</span>
+      </div>
+      <div class="lang-card">
+        <span class="dot" style="background:#F7DF1E"></span>
+        <span class="name">JavaScript</span>
+        <span class="ext">.js / .ts</span>
+      </div>
+      <div class="lang-card">
+        <span class="dot" style="background:#659AD2"></span>
+        <span class="name">C / C++</span>
+        <span class="ext">.c / .cpp / .h</span>
+      </div>
+      <div class="lang-card">
+        <span class="dot" style="background:#A8A19F"></span>
+        <span class="name">& more</span>
+        <span class="ext">growing each release</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WORKFLOW
+     ============================================================ -->
+<section class="section" id="workflow">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow violet">How it works</span>
+      <h2>Scan once. Clean confidently. <span class="grad">Ship lighter.</span></h2>
+      <p class="lede">A clear path from a noisy codebase to a release-ready build — with undo on every step.</p>
+    </div>
+
+    <div class="steps">
+      <article class="step">
+        <span class="num">STEP 01</span>
+        <h3>Drop a project folder.</h3>
+        <p>Cacomi reads every file in seconds — locally, on your Mac, with nothing sent off the machine.</p>
+      </article>
+      <article class="step">
+        <span class="num">STEP 02</span>
+        <h3>Review findings by file.</h3>
+        <p>Unused code, debug logs and security findings are grouped with a code preview, so triage is fast.</p>
+      </article>
+      <article class="step">
+        <span class="num">STEP 03</span>
+        <h3>Apply one-tap fixes.</h3>
+        <p>Comment, delete, or wrap in <code style="font-family:'JetBrains Mono',monospace">#if&nbsp;DEBUG</code> — every action is reversible.</p>
+      </article>
+      <article class="step">
+        <span class="num">STEP 04</span>
+        <h3>Ship a cleaner build.</h3>
+        <p>Fewer dead paths. Fewer noisy logs. Fewer secrets shipping by accident.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA
+     ============================================================ -->
+<section class="section" id="download">
+  <div class="cta">
+    <div class="cta-inner">
+      <h2>Ship a <span class="grad-warm">cleaner</span> build.</h2>
+      <p class="lede">
+        Download Cacomi for macOS and run your first scan in under a minute.
+      </p>
+      <a href="#" class="btn btn-gradient btn-lg" aria-label="Download Cacomi for macOS">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/>
+        </svg>
+        Download for Mac
+      </a>
+      <p style="margin-top: 20px; color: rgba(236,230,217,0.55); font: 500 13px/1 'JetBrains Mono', monospace; letter-spacing: 0.06em;">
+        macOS 13 Ventura or later · Universal binary · Local &amp; private
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <a href="#top" class="brand">
+      <span class="logo"><img src="images/icon.png" alt="" /></span>
+      <span>Cacomi</span>
+    </a>
+    <div class="footer-links">
+      <a href="#features">Features</a>
+      <a href="#security">Security</a>
+      <a href="#languages">Languages</a>
+      <a href="#download">Download</a>
+    </div>
+    <div class="meta">© Cacomi · Built for macOS</div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+
+</body>
+</html>
