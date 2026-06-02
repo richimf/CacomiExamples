@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CACOMI_FAKE_API_KEY</key>
+    <string>plist_FAKE_CACOMI_API_KEY_123456</string>
+    <key>CACOMI_FAKE_SECRET</key>
+    <string>plist_secret_FAKE_CACOMI_SECRET_abcdef</string>
+    <key>FirebaseAPIKey</key>
+    <string>AIzaSyFAKE_PLIST_CACOMI_KEY_123456</string>
+    <key>DebugEndpoint</key>
+    <string>http://insecure-api.fake-cacomi.local/login</string>
+</dict>
+</plist>

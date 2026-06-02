@@ -39,6 +39,19 @@ Examples/ObjectiveCExamples/CalculatorOld
 **You can review all features at the same time** by scanning the folder: `multilanguage_examples`.
 
 
+### Example Binary IPA for Scanning
+
+The following folder contains a sample .ipa file that can be scanned by Cacomi.
+
+You can scan either the **BadPracticeIPA.ipa** file directly or the **BadPracticesIPA** folder.
+
+
+```text
+Examples/BinaryExampleIPA
+```
+
+
+
 ## Screenshots 
 
 ### 1. Open Cacomi
@@ -83,4 +96,15 @@ This feature is designed as a lightweight static analysis helper for developers.
 ![Security Results](screenshots/9.png)
 
 ![Security Code Preview](screenshots/10.png)
+
+
+### 8. Results of static secret keys after scanning IPA or Xcode project
+
+Cacomi can also scan an .ipa file or a project folder to detect potential hardcoded secrets and sensitive values that should not be included in production builds.
+
+The results may include items such as API keys, tokens, private endpoints, credentials, or other suspicious strings found during static analysis. Each finding can be reviewed in context so developers can decide whether the value should be removed, replaced, or moved to a safer configuration flow before release.
+
+![Security Results](screenshots/11.png)
+
+![Security Code Preview](screenshots/12.png)
 
