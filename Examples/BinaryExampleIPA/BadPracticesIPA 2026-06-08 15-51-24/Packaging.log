@@ -1,0 +1,148 @@
+2026-06-08 21:51:20 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x7e8632d00; archive(resolved)="<IDEArchive: 0x7eff97410>", distributionTask(resolved)="2", distributionDestination(resolved)="1", distributionMethod(resolved)="<IDEDistributionMethodDevelopmentSigned: 0x7f6864300>", team(resolved)="<IDEProvisioningDisambiguatableBasicTeam: 0x7ff8f5a80; teamID='99A3D7748T', teamName='RAUL MONTESINOS FERNANDEZ', teamType='Individual', username='raulmfdez@icloud.com', isFreeProvisioningTeam='0'>">
+	Chain (15, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x7e8632d00; archive = "<IDEArchive: 0x7eff97410>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7f6864300>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7ff8f5a80; teamID='99A3D7748T', teamName='RAUL MONTESINOS FERNANDEZ', teamType='Individual', username='raulmfdez@icloud.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionProcessingPipelineContext: 0x7e8630f00; archive = "<IDEArchive: 0x7eff97410>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7f6864300>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7ff8f5a80; teamID='99A3D7748T', teamName='RAUL MONTESINOS FERNANDEZ', teamType='Individual', username='raulmfdez@icloud.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7ef999e00; archive = "<IDEArchive: 0x7eff97410>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7f6864300>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7ff8f5a80; teamID='99A3D7748T', teamName='RAUL MONTESINOS FERNANDEZ', teamType='Individual', username='raulmfdez@icloud.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7f1324a00; archive = "<IDEArchive: 0x7eff97410>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7f6864300>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7ff8f5a80; teamID='99A3D7748T', teamName='RAUL MONTESINOS FERNANDEZ', teamType='Individual', username='raulmfdez@icloud.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7f64c2d00; archive = "<IDEArchive: 0x7eff97410>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7f6864300>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7ff8f5a80; teamID='99A3D7748T', teamName='RAUL MONTESINOS FERNANDEZ', teamType='Individual', username='raulmfdez@icloud.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7f64c2800; archive = "<IDEArchive: 0x7eff97410>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7f6864300>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7ff8f5a80; teamID='99A3D7748T', teamName='RAUL MONTESINOS FERNANDEZ', teamType='Individual', username='raulmfdez@icloud.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7ed343980; archive = "<IDEArchive: 0x7eff97410>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7f6864300>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7ff8f5a80; teamID='99A3D7748T', teamName='RAUL MONTESINOS FERNANDEZ', teamType='Individual', username='raulmfdez@icloud.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7f1317480; archive = "<IDEArchive: 0x7eff97410>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7f6864300>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7ff8f5a80; teamID='99A3D7748T', teamName='RAUL MONTESINOS FERNANDEZ', teamType='Individual', username='raulmfdez@icloud.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7f64c0a00; archive = "<IDEArchive: 0x7eff97410>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7f6864300>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7ff8f5a80; teamID='99A3D7748T', teamName='RAUL MONTESINOS FERNANDEZ', teamType='Individual', username='raulmfdez@icloud.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7f64c2580; archive = "<IDEArchive: 0x7eff97410>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7f6864300>", team="(null)">
+	<IDEDistributionContext: 0x7f64c3200; archive = "<IDEArchive: 0x7eff97410>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7f6864300>", team="(null)">
+	<IDEDistributionContext: 0x7f64c1680; archive = "<IDEArchive: 0x7eff97410>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7f6864300>", team="(null)">
+	<IDEDistributionContext: 0x7ef8baf80; archive = "<IDEArchive: 0x7eff97410>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x7f6864300>", team="(null)">
+	<IDEDistributionContext: 0x7ed3a6f80; archive = "<IDEArchive: 0x7eff97410>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x7ed3a4a00; archive = "<IDEArchive: 0x7eff97410>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x7e8632d00>
+2026-06-08 21:51:20 +0000  Processing step: IDEDistributionCreateDestRootStep
+2026-06-08 21:51:20 +0000  Processing step: IDEDistributionCopyItemStep
+2026-06-08 21:51:20 +0000  Running /usr/bin/ditto '-V' '/Users/richimf/Library/Developer/Xcode/Archives/2026-06-08/BadPracticesIPA 08-06-26, 3.50 p.m..xcarchive/Products/Applications/BadPracticesIPA.app' '/var/folders/kz/wf97zr8514q11_9wfmkvjdyc0000gn/T/XcodeDistPipeline.~~~8WGRp5/Root/Payload/BadPracticesIPA.app'
+2026-06-08 21:51:20 +0000  >>> Copying /Users/richimf/Library/Developer/Xcode/Archives/2026-06-08/BadPracticesIPA 08-06-26, 3.50 p.m..xcarchive/Products/Applications/BadPracticesIPA.app 
+2026-06-08 21:51:20 +0000  copying file ./_CodeSignature/CodeResources ... 
+2026-06-08 21:51:20 +0000  3873 bytes for ./_CodeSignature/CodeResources
+2026-06-08 21:51:20 +0000  copying file ./CacomiConfig.json ... 
+2026-06-08 21:51:20 +0000  690 bytes for ./CacomiConfig.json
+2026-06-08 21:51:20 +0000  copying file ./SecretsInConfig.xcconfig ... 
+2026-06-08 21:51:20 +0000  372 bytes for ./SecretsInConfig.xcconfig
+2026-06-08 21:51:20 +0000  copying file ./secrets.json ... 
+2026-06-08 21:51:20 +0000  1400 bytes for ./secrets.json
+2026-06-08 21:51:20 +0000  copying file ./config.xml ... 
+2026-06-08 21:51:20 +0000  4212 bytes for ./config.xml
+2026-06-08 21:51:20 +0000  copying file ./credentials.env ... 
+2026-06-08 21:51:20 +0000  4385 bytes for ./credentials.env
+2026-06-08 21:51:20 +0000  copying file ./BadPracticesIPA ... 
+2026-06-08 21:51:20 +0000  204800 bytes for ./BadPracticesIPA
+2026-06-08 21:51:20 +0000  copying file ./embedded.mobileprovision ... 
+2026-06-08 21:51:20 +0000  12503 bytes for ./embedded.mobileprovision
+2026-06-08 21:51:20 +0000  copying file ./queries.sql ... 
+2026-06-08 21:51:20 +0000  524 bytes for ./queries.sql
+2026-06-08 21:51:20 +0000  copying file ./Info.plist ... 
+2026-06-08 21:51:20 +0000  3250 bytes for ./Info.plist
+2026-06-08 21:51:20 +0000  copying file ./CACOMI_TEST_CHECKLIST.md ... 
+2026-06-08 21:51:20 +0000  15639 bytes for ./CACOMI_TEST_CHECKLIST.md
+2026-06-08 21:51:20 +0000  copying file ./CacomiTestApp-Info.plist ... 
+2026-06-08 21:51:20 +0000  616 bytes for ./CacomiTestApp-Info.plist
+2026-06-08 21:51:20 +0000  copying file ./PkgInfo ... 
+2026-06-08 21:51:20 +0000  8 bytes for ./PkgInfo
+2026-06-08 21:51:20 +0000  /usr/bin/ditto exited with 0
+2026-06-08 21:51:20 +0000  Processing step: IDEDistributionEmbedProfileStep
+2026-06-08 21:51:20 +0000  Processing step: IDEDistributionInfoPlistStep
+2026-06-08 21:51:20 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2026-06-08 21:51:20 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2026-06-08 21:51:20 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2026-06-08 21:51:20 +0000  Processing step: IDEDistributionSymbolsStep
+2026-06-08 21:51:20 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2026-06-08 21:51:20 +0000  Processing step: IDEDistributionAppThinningStep
+2026-06-08 21:51:20 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2026-06-08 21:51:20 +0000  Processing step: IDEDistributionArchThinningStep
+2026-06-08 21:51:20 +0000  Archs to thin for item /Users/richimf/Library/Developer/Xcode/Archives/2026-06-08/BadPracticesIPA 08-06-26, 3.50 p.m..xcarchive/Products/Applications/BadPracticesIPA.app are []
+2026-06-08 21:51:20 +0000  Processing step: IDEDistributionODRStep
+2026-06-08 21:51:20 +0000  Processing step: IDEDistributionStripXattrsStep
+2026-06-08 21:51:20 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2026-06-08 21:51:20 +0000  Processing step: IDEDistributionCodesignStep
+2026-06-08 21:51:20 +0000  Entitlements for <IDEDistributionItem: 0x81a8ab780; bundleID='com.databoosters.BadPracticesIPA', path='<DVTFilePath:0x7edbe7560:'/Users/richimf/Library/Developer/Xcode/Archives/2026-06-08/BadPracticesIPA 08-06-26, 3.50 p.m..xcarchive/Products/Applications/BadPracticesIPA.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x81a8ab660; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7e8aaedc0; name='Apple Development: RAUL MONTESINOS FERNANDEZ (G7TK768FP7)', hash='131E2A5F854174115197D2D96988F2D83A6B1CC3', serialNumber='30514C9A726A3BBF42107CF6982C0E0B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-12-18 16:30:20 +0000''>', entitlements='{
+    "application-identifier" = "99A3D7748T.com.databoosters.BadPracticesIPA";
+    "com.apple.developer.team-identifier" = 99A3D7748T;
+    "get-task-allow" = 1;
+}', teamID='99A3D7748T', identifier='com.databoosters.BadPracticesIPA', executablePath='<DVTFilePath:0x81a763000:'/Users/richimf/Library/Developer/Xcode/Archives/2026-06-08/BadPracticesIPA 08-06-26, 3.50 p.m..xcarchive/Products/Applications/BadPracticesIPA.app/BadPracticesIPA'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "99A3D7748T.com.databoosters.BadPracticesIPA";
+    "com.apple.developer.team-identifier" = 99A3D7748T;
+    "get-task-allow" = 1;
+}
+2026-06-08 21:51:20 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2026-06-08 21:51:20 +0000  Entitlements for <IDEDistributionItem: 0x81a8ab780; bundleID='com.databoosters.BadPracticesIPA', path='<DVTFilePath:0x7edbe7560:'/Users/richimf/Library/Developer/Xcode/Archives/2026-06-08/BadPracticesIPA 08-06-26, 3.50 p.m..xcarchive/Products/Applications/BadPracticesIPA.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x81a8ab660; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7e8aae940; name='Apple Development: RAUL MONTESINOS FERNANDEZ (G7TK768FP7)', hash='131E2A5F854174115197D2D96988F2D83A6B1CC3', serialNumber='30514C9A726A3BBF42107CF6982C0E0B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-12-18 16:30:20 +0000''>', entitlements='{
+    "application-identifier" = "99A3D7748T.com.databoosters.BadPracticesIPA";
+    "com.apple.developer.team-identifier" = 99A3D7748T;
+    "get-task-allow" = 1;
+}', teamID='99A3D7748T', identifier='com.databoosters.BadPracticesIPA', executablePath='<DVTFilePath:0x81a763000:'/Users/richimf/Library/Developer/Xcode/Archives/2026-06-08/BadPracticesIPA 08-06-26, 3.50 p.m..xcarchive/Products/Applications/BadPracticesIPA.app/BadPracticesIPA'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "99A3D7748T.com.databoosters.BadPracticesIPA";
+    "com.apple.developer.team-identifier" = 99A3D7748T;
+    "get-task-allow" = 1;
+}
+2026-06-08 21:51:20 +0000  Writing entitlements for <IDEDistributionItem: 0x81a8ab780; bundleID='com.databoosters.BadPracticesIPA', path='<DVTFilePath:0x7edbe7560:'/Users/richimf/Library/Developer/Xcode/Archives/2026-06-08/BadPracticesIPA 08-06-26, 3.50 p.m..xcarchive/Products/Applications/BadPracticesIPA.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x81a8ab660; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7e8aae940; name='Apple Development: RAUL MONTESINOS FERNANDEZ (G7TK768FP7)', hash='131E2A5F854174115197D2D96988F2D83A6B1CC3', serialNumber='30514C9A726A3BBF42107CF6982C0E0B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2025-12-18 16:30:20 +0000''>', entitlements='{
+    "application-identifier" = "99A3D7748T.com.databoosters.BadPracticesIPA";
+    "com.apple.developer.team-identifier" = 99A3D7748T;
+    "get-task-allow" = 1;
+}', teamID='99A3D7748T', identifier='com.databoosters.BadPracticesIPA', executablePath='<DVTFilePath:0x81a763000:'/Users/richimf/Library/Developer/Xcode/Archives/2026-06-08/BadPracticesIPA 08-06-26, 3.50 p.m..xcarchive/Products/Applications/BadPracticesIPA.app/BadPracticesIPA'>', hardenedRuntime='0'>'> to: /var/folders/kz/wf97zr8514q11_9wfmkvjdyc0000gn/T/XcodeDistPipeline.~~~8WGRp5/entitlements~~~UZDR48
+2026-06-08 21:51:20 +0000  invoking codesign: <NSConcreteTask: 0x7e8af5860; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    131E2A5F854174115197D2D96988F2D83A6B1CC3,
+    "--entitlements",
+    "/var/folders/kz/wf97zr8514q11_9wfmkvjdyc0000gn/T/XcodeDistPipeline.~~~8WGRp5/entitlements~~~UZDR48",
+    "--preserve-metadata=identifier,flags,runtime,launch-constraints,library-constraints",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/kz/wf97zr8514q11_9wfmkvjdyc0000gn/T/XcodeDistPipeline.~~~8WGRp5/Root/Payload/BadPracticesIPA.app"
+)'>
+2026-06-08 21:51:20 +0000  codesign output: /var/folders/kz/wf97zr8514q11_9wfmkvjdyc0000gn/T/XcodeDistPipeline.~~~8WGRp5/Root/Payload/BadPracticesIPA.app: replacing existing signature
+/var/folders/kz/wf97zr8514q11_9wfmkvjdyc0000gn/T/XcodeDistPipeline.~~~8WGRp5/Root/Payload/BadPracticesIPA.app: signed app bundle with Mach-O thin (arm64) [com.databoosters.BadPracticesIPA]
+2026-06-08 21:51:20 +0000  Processing step: IDEDistributionZipODRItemStep
+2026-06-08 21:51:20 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2026-06-08 21:51:20 +0000  Processing step: IDEDistributionCreateIPAStep
+2026-06-08 21:51:20 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/kz/wf97zr8514q11_9wfmkvjdyc0000gn/T/XcodeDistPipeline.~~~8WGRp5/Root' '/var/folders/kz/wf97zr8514q11_9wfmkvjdyc0000gn/T/XcodeDistPipeline.~~~8WGRp5/Packages/BadPracticesIPA.ipa'
+2026-06-08 21:51:20 +0000  >>> Copying /var/folders/kz/wf97zr8514q11_9wfmkvjdyc0000gn/T/XcodeDistPipeline.~~~8WGRp5/Root 
+2026-06-08 21:51:20 +0000  copying file ./Payload/BadPracticesIPA.app/_CodeSignature/CodeResources ... 
+2026-06-08 21:51:20 +0000  3873 bytes for ./Payload/BadPracticesIPA.app/_CodeSignature/CodeResources
+2026-06-08 21:51:20 +0000  copying file ./Payload/BadPracticesIPA.app/CacomiConfig.json ... 
+2026-06-08 21:51:20 +0000  690 bytes for ./Payload/BadPracticesIPA.app/CacomiConfig.json
+2026-06-08 21:51:20 +0000  copying file ./Payload/BadPracticesIPA.app/SecretsInConfig.xcconfig ... 
+2026-06-08 21:51:20 +0000  372 bytes for ./Payload/BadPracticesIPA.app/SecretsInConfig.xcconfig
+copying file ./Payload/BadPracticesIPA.app/secrets.json ... 
+2026-06-08 21:51:20 +0000  1400 bytes for ./Payload/BadPracticesIPA.app/secrets.json
+2026-06-08 21:51:20 +0000  copying file ./Payload/BadPracticesIPA.app/config.xml ... 
+2026-06-08 21:51:20 +0000  4212 bytes for ./Payload/BadPracticesIPA.app/config.xml
+2026-06-08 21:51:20 +0000  copying file ./Payload/BadPracticesIPA.app/credentials.env ... 
+2026-06-08 21:51:20 +0000  4385 bytes for ./Payload/BadPracticesIPA.app/credentials.env
+2026-06-08 21:51:20 +0000  copying file ./Payload/BadPracticesIPA.app/BadPracticesIPA ... 
+2026-06-08 21:51:20 +0000  204800 bytes for ./Payload/BadPracticesIPA.app/BadPracticesIPA
+2026-06-08 21:51:20 +0000  copying file ./Payload/BadPracticesIPA.app/embedded.mobileprovision ... 
+2026-06-08 21:51:20 +0000  12503 bytes for ./Payload/BadPracticesIPA.app/embedded.mobileprovision
+2026-06-08 21:51:20 +0000  copying file ./Payload/BadPracticesIPA.app/queries.sql ... 
+2026-06-08 21:51:20 +0000  524 bytes for ./Payload/BadPracticesIPA.app/queries.sql
+2026-06-08 21:51:20 +0000  copying file ./Payload/BadPracticesIPA.app/Info.plist ... 
+2026-06-08 21:51:20 +0000  3250 bytes for ./Payload/BadPracticesIPA.app/Info.plist
+2026-06-08 21:51:20 +0000  copying file ./Payload/BadPracticesIPA.app/CACOMI_TEST_CHECKLIST.md ... 
+2026-06-08 21:51:20 +0000  15639 bytes for ./Payload/BadPracticesIPA.app/CACOMI_TEST_CHECKLIST.md
+2026-06-08 21:51:20 +0000  copying file ./Payload/BadPracticesIPA.app/CacomiTestApp-Info.plist ... 
+616 bytes for ./Payload/BadPracticesIPA.app/CacomiTestApp-Info.plist
+2026-06-08 21:51:20 +0000  copying file ./Payload/BadPracticesIPA.app/PkgInfo ... 
+2026-06-08 21:51:20 +0000  8 bytes for ./Payload/BadPracticesIPA.app/PkgInfo
+2026-06-08 21:51:20 +0000  /usr/bin/ditto exited with 0
+2026-06-08 21:51:20 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2026-06-08 21:51:20 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2026-06-08 21:51:20 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2026-06-08 21:51:20 +0000  IDEDistributionItem init <DVTFilePath:0x7e8b4b870:'/var/folders/kz/wf97zr8514q11_9wfmkvjdyc0000gn/T/XcodeDistPipeline.~~~8WGRp5/Root/Payload/BadPracticesIPA.app'>
+2026-06-08 21:51:20 +0000  Processing step: IDEDistributionCreateManifestStep

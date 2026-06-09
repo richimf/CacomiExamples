@@ -46,6 +46,48 @@ enum BadSecrets {
     static let openAIApiKey = "sk-FAKE-CACOMI-OPENAI-abcdefghijklmnopqrstuvwxyz1234567890ABCD"
     static let anthropicApiKey = "sk-ant-api03-FAKE-CACOMI-anthropic-key-abcdefghijklmnopqrstuvwxyz1234567890"
 
+    // Azure
+    static let azureClientId = "11111111-2222-3333-4444-555555555555"
+    static let azureClientSecret = "FAKE~cacomi.AzureClient.Secret_1234567890ABCDEFghijklmnop"
+    static let azureStorageKey = "DefaultEndpointsProtocol=https;AccountName=cacomifake;AccountKey=FAKEcacomiAzureStorageKey1234567890abcdefghijklmnopqrstuvwxyz==;EndpointSuffix=core.windows.net"
+    // Heroku
+    static let herokuApiKey = "12345678-aaaa-bbbb-cccc-1234567890ab"
+    // DigitalOcean
+    static let digitalOceanToken = "dop_v1_FAKEcacomiDigitalOceanToken1234567890abcdef1234567890abcdef1234567890ab"
+    // Cloudflare
+    static let cloudflareApiToken = "FAKEcacomi-cloudflare-token-abcdef1234567890abcdef12345"
+    // GitLab
+    static let gitlabToken = "glpat-FAKEcacomi-gitlab-PAT-1234567890ab"
+    // NPM
+    static let npmAuthToken = "npm_FAKEcacomiNpmToken1234567890abcdefghij1234567890"
+    // Discord
+    static let discordBotToken = "MTAxMjM0NTY3ODkwMTIzNDU2.FAKEca.FAKEcacomiDiscordBotTokenXXXXXXXXXXXXXXXXX"
+    // Telegram
+    static let telegramBotToken = "1234567890:AAFAKEcacomiTelegramBotTokenABCDEFGHIJKLMN"
+    // HuggingFace
+    static let huggingFaceToken = "hf_FAKEcacomiHuggingFaceToken1234567890abcdefghij"
+    // Square
+    static let squareAccessToken = "sq0atp-FAKEcacomiSquareAccessToken1234"
+    // PGP / GPG key marker
+    static let pgpPrivateKey = """
+    -----BEGIN PGP PRIVATE KEY BLOCK-----
+    Version: GnuPG v2
+
+    FAKECACOMIPGPPRIVATEKEYDATA1234567890abcdefghijklmnopqrstuvwxyz
+    -----END PGP PRIVATE KEY BLOCK-----
+    """
+    // PKCS8 / EC private key markers
+    static let ecPrivateKey = """
+    -----BEGIN EC PRIVATE KEY-----
+    FAKECACOMIECPRIVATEKEY1234567890abcdef
+    -----END EC PRIVATE KEY-----
+    """
+    static let dsaPrivateKey = """
+    -----BEGIN DSA PRIVATE KEY-----
+    FAKECACOMIDSAPRIVATEKEY1234567890abcdef
+    -----END DSA PRIVATE KEY-----
+    """
+
     // MARK: - Database credentials (should NEVER be hardcoded)
 
     static let dbHost = "prod-db.fake-cacomi.com"

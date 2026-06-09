@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BadPracticesIPA.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>buildNumber</key>
+			<string>1</string>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>131E2A5F854174115197D2D96988F2D83A6B1CC3</string>
+				<key>dateExpires</key>
+				<string>18/12/26</string>
+				<key>type</key>
+				<string>Apple Development</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>99A3D7748T.com.databoosters.BadPracticesIPA</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>99A3D7748T</string>
+				<key>get-task-allow</key>
+				<true/>
+			</dict>
+			<key>name</key>
+			<string>BadPracticesIPA.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>df57e15c-eee0-456f-80e5-24ea87c511e6</string>
+				<key>dateExpires</key>
+				<string>25/03/27</string>
+				<key>name</key>
+				<string>iOS Team Provisioning Profile: *</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>99A3D7748T</string>
+				<key>name</key>
+				<string>RAUL MONTESINOS FERNANDEZ</string>
+			</dict>
+			<key>versionNumber</key>
+			<string>1.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>

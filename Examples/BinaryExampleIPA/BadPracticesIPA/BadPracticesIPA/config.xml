@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    BAD: Configuration file shipped inside the IPA with secrets in
+    cleartext, broken cipher suites, disabled certificate validation
+    and insecure default endpoints. Intentionally designed so static
+    scanners can match it on its tag/attribute structure.
+-->
+<configuration environment="production" debug="true">
+
+    <endpoints>
+        <api url="http://api.fake-cacomi.com/v1" allowInsecure="true"/>
+        <auth url="http://auth.fake-cacomi.com/oauth/token" allowInsecure="true"/>
+        <logs url="http://logs.fake-cacomi.com/ingest" allowInsecure="true"/>
+        <ftp url="ftp://ftp-user:FtpCacomiPassword2024@ftp.fake-cacomi.com"/>
+        <telnet url="telnet://admin:admin@legacy.fake-cacomi.com:23"/>
+    </endpoints>
+
+    <credentials>
+        <user name="admin" password="admin123" role="root"/>
+        <user name="service" password="ServiceCacomi2024!" role="service"/>
+        <user name="readonly" password="ReadOnlyCacomi2024" role="reader"/>
+        <apiKey value="cacomi_xml_api_key_FAKE_1234567890abcdef"/>
+        <secret value="cacomi_xml_secret_FAKE_0987654321zyxwvu"/>
+        <accessToken value="cacomi_xml_access_token_FAKE_a1b2c3d4e5f6"/>
+        <refreshToken value="rt_xml_FAKEcacomi_refresh_persistent_abcdefghij"/>
+    </credentials>
+
+    <providers>
+        <aws accessKeyId="AKIAXMLCACOMI1234567" secretAccessKey="XmlFAKEcacomiAwsSecretKey1234567890abcdefghij" region="us-east-1"/>
+        <google apiKey="AIzaSyXMLfakeCacomiGoogleKey1234567890abcdef" projectId="cacomi-fake-prod"/>
+        <stripe publishableKey="pk_live_XMLfakeCacomiStripePubKey1234567890" secretKey="sk_live_XMLfakeCacomiStripeSecKey1234567890ABCDEF"/>
+        <slack botToken="xoxb-9999999999-8888888888-XMLfakeCacomiSlackBot1234"/>
+        <github personalAccessToken="ghp_XMLfakeCacomi1234567890abcdefghijklmnopqr12"/>
+        <openai apiKey="sk-XMLfakeCacomi-openai-key-abcdefghijklmnopqrstuvwxyz1234567890ABCD"/>
+        <firebase apiKey="AIzaSyXMLfakeCacomiFirebaseKey1234567890" dbUrl="https://fake-cacomi-default-rtdb.firebaseio.com"/>
+    </providers>
+
+    <database>
+        <connection>
+            <host>prod-db.fake-cacomi.com</host>
+            <port>5432</port>
+            <username>db_admin</username>
+            <password>XmlDbCacomiPassword2024!</password>
+            <database>production</database>
+            <connectionString>postgres://db_admin:XmlDbCacomiPassword2024!@prod-db.fake-cacomi.com:5432/production</connectionString>
+        </connection>
+    </database>
+
+    <tls>
+        <verifyHost>false</verifyHost>
+        <verifyPeer>false</verifyPeer>
+        <minVersion>SSLv3</minVersion>
+        <allowSelfSigned>true</allowSelfSigned>
+        <pinning enabled="false"/>
+        <cipherSuites>
+            <suite>TLS_RSA_WITH_NULL_MD5</suite>
+            <suite>TLS_RSA_WITH_NULL_SHA</suite>
+            <suite>TLS_RSA_EXPORT_WITH_RC4_40_MD5</suite>
+            <suite>TLS_RSA_WITH_RC4_128_MD5</suite>
+            <suite>TLS_RSA_WITH_DES_CBC_SHA</suite>
+            <suite>TLS_RSA_WITH_3DES_EDE_CBC_SHA</suite>
+        </cipherSuites>
+    </tls>
+
+    <crypto>
+        <algorithm>DES</algorithm>
+        <hash>MD5</hash>
+        <salt static="true">saltysalt</salt>
+        <iv static="true">0000000000000000</iv>
+        <key static="true">1234567890ABCDEF1234567890ABCDEF</key>
+        <prng seedFromTime="true"/>
+    </crypto>
+
+    <jwt>
+        <signingSecret>fake-xml-cacomi-jwt-hs256-secret-do-not-share</signingSecret>
+        <allowAlgNone>true</allowAlgNone>
+        <verifySignature>false</verifySignature>
+        <verifyExpiration>false</verifyExpiration>
+    </jwt>
+
+    <logging>
+        <level>VERBOSE</level>
+        <logPasswords>true</logPasswords>
+        <logTokens>true</logTokens>
+        <logRequests includeBody="true" includeHeaders="true"/>
+        <destination>http://logs.fake-cacomi.com/ingest</destination>
+    </logging>
+
+    <features>
+        <jailbreakDetection enabled="false"/>
+        <antiDebug enabled="false"/>
+        <screenshotProtection enabled="false"/>
+        <rootCAOverride enabled="true"/>
+        <devMenu enabled="true" password="dev"/>
+    </features>
+
+</configuration>

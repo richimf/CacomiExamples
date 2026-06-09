@@ -28,6 +28,18 @@ struct ContentView: View {
                 InsecureStorage.runAll()
             }
 
+            Button("Save password in UserDefaults") {
+                LoginManager.simulate()
+            }
+
+            Button("Run dangerous APIs") {
+                DangerousAPIs.runAll()
+            }
+
+            Button("Run bad JWT validation") {
+                JWTBadPractices.simulate()
+            }
+
             Button("Send secrets over HTTP") {
                 InsecureNetworking.shared.performLogin(
                     user: "admin",
