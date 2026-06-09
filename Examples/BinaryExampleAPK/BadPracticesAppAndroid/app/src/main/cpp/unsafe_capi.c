@@ -18,7 +18,7 @@ void cacomi_unsafe_capi_demo(const char *userInput) {
 
     char line[64];
     // BAD: gets es inherentemente inseguro // CACOMI-EXPECT: UnsafeCAPIRule
-    gets(line);
+    //gets(line);
 
     // BAD: system() con cadena (inyeccion de comandos) // CACOMI-EXPECT: UnsafeCAPIRule
     system("ls /tmp");
