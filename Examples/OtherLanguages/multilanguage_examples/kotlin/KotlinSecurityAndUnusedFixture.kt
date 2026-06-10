@@ -160,3 +160,50 @@ val unused_topLevelApiKey = "unused-top-level-kotlin-api-key"
 fun unused_topLevelFunction() {
     println("unused_topLevelFunction password: hardcoded")
 }
+
+// ============================================================================
+// P1 parity additions (new patterns) — all values are FAKE / for testing only
+// ============================================================================
+
+object KotlinP1Secrets {
+    // BAD: Azure AD client secret // CACOMI-EXPECT: SecretPattern
+    const val AZURE_CLIENT_SECRET = "Qj8Q~aB3cDeFgHiJkLmNoPqRsTuVwXyZ012345"
+    // BAD: Supabase project URL // CACOMI-EXPECT: SecretPattern
+    const val SUPABASE_URL = "https://abcdefghijklmnopqrst.supabase.co"
+    // BAD: GitLab runner token // CACOMI-EXPECT: SecretPattern
+    const val GITLAB_RUNNER = "glrt-AbCdEfGhIjKlMnOpQrS1"
+    // BAD: basic-auth credentials in URL // CACOMI-EXPECT: SecretPattern
+    const val BASIC_AUTH_URL = "https://admin:s3cr3tP4ssw0rd@internal.example.com/api"
+    // BAD: SMTP credentials in URL // CACOMI-EXPECT: SecretPattern
+    const val SMTP_URL = "smtp://mailer:Pa55w0rdMailer@smtp.example.com:587"
+    // BAD: OAuth implicit flow // CACOMI-EXPECT: SecretPattern
+    const val OAUTH_IMPLICIT = "https://idp.example.com/authorize?client_id=app&response_type=token"
+    // BAD: OAuth redirect over cleartext http // CACOMI-EXPECT: SecretPattern
+    const val OAUTH_INSECURE_REDIRECT =
+        "https://idp.example.com/authorize?redirect_uri=http://app.example.com/callback"
+    // NEGATIVO: PKCE auth code flow (forma segura) // CACOMI-EXPECT: none
+    const val OAUTH_SECURE = "https://idp.example.com/authorize?response_type=code&code_challenge=xyz"
+}
+
+// BAD: token guardado en SharedPreferences en claro // CACOMI-EXPECT: InsecureStorage
+fun storeTokenInsecurely(context: android.content.Context, token: String) {
+    val prefs = context.getSharedPreferences("auth", android.content.Context.MODE_PRIVATE)
+    prefs.edit().putString("accessToken", token).apply()
+}
+
+// BAD: rawQuery por concatenacion de input // CACOMI-EXPECT: SQLRules
+fun searchFromInput(db: android.database.sqlite.SQLiteDatabase, userInput: String) {
+    db.rawQuery("SELECT * FROM users WHERE name = '" + userInput + "'", null)
+}
+
+// NEGATIVO: rawQuery parametrizada // CACOMI-EXPECT: none
+fun searchSafe(db: android.database.sqlite.SQLiteDatabase, userInput: String) {
+    db.rawQuery("SELECT * FROM users WHERE name = ?", arrayOf(userInput))
+}
+
+// BAD: password logueado dentro de un if de runtime // CACOMI-EXPECT: PrintAndLogs
+fun conditionalLog(password: String, debugFlag: Boolean) {
+    if (debugFlag) {
+        Log.e("Auth", "password=$password")
+    }
+}

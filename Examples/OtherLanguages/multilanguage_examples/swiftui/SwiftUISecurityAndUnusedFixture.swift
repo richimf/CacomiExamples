@@ -154,6 +154,46 @@ extension SwiftUISecurityAndUnusedViewModel {
     }
 }
 
+// ============================================================================
+// P1 parity additions (new patterns) — all values are FAKE / for testing only
+// ============================================================================
+
+enum SwiftUIP1Secrets {
+    // CACOMI-EXPECT[SecretPatternRule|high]: Azure AD client secret
+    static let azure = "Qj8Q~aB3cDeFgHiJkLmNoPqRsTuVwXyZ012345"
+    // CACOMI-EXPECT[SecretPatternRule|high]: Supabase project URL
+    static let supabase = "https://abcdefghijklmnopqrst.supabase.co"
+    // CACOMI-EXPECT[SecretPatternRule|high]: GitLab runner token
+    static let gitlabRunner = "glrt-AbCdEfGhIjKlMnOpQrS1"
+    // CACOMI-EXPECT[SecretPatternRule|high]: SMTP credentials in URL
+    static let smtp = "smtp://mailer:Pa55w0rdMailer@smtp.example.com:587"
+    // CACOMI-EXPECT[SecretPatternRule|high]: OAuth implicit flow
+    static let oauthImplicit = "https://idp.example.com/authorize?client_id=app&response_type=token"
+    // CACOMI-NEGATIVE[SecretPatternRule]: PKCE auth code flow (secure form)
+    static let oauthSecure = "https://idp.example.com/authorize?response_type=code&code_challenge=xyz"
+}
+
+enum SwiftUIP1Misc {
+    // CACOMI-EXPECT[InjectionRules|high]: NSPredicate format-string injection
+    static func find(_ userInput: String) -> NSPredicate {
+        NSPredicate(format: "name == \(userInput) AND active == 1")
+    }
+    // CACOMI-NEGATIVE[InjectionRules]: parameterised predicate
+    static func findSafe(_ userInput: String) -> NSPredicate {
+        NSPredicate(format: "name == %@ AND active == 1", userInput)
+    }
+    // CACOMI-EXPECT[WeakCipherRule|high]: AES-ECB mode option
+    static let ecbMode = kCCOptionECBMode
+    // CACOMI-EXPECT[InsecureStorageRule|high]: file written with data protection disabled
+    static func write(_ data: Data, to url: URL) throws {
+        try data.write(to: url, options: [.noFileProtection])
+    }
+    // CACOMI-EXPECT[LogParser|medium]: conditional-wrapped password log
+    static func conditionalLog(_ password: String) {
+        if ProcessInfo.processInfo.environment["DBG"] != nil { print("password=\(password)") }
+    }
+}
+
 #Preview {
     SwiftUISecurityAndUnusedFixtureView()
 }

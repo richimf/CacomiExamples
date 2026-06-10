@@ -1,0 +1,31 @@
+// Cacomi fixture (P1): Gradle dynamic versions + insecure repo.
+//
+// NOTE: This file is NOT named `build.gradle`/`settings.gradle`, so Gradle never
+// auto-applies it and it does NOT affect the real build. It exists only as a
+// source fixture so Cacomi's dependency/supply-chain rules have something to flag.
+// TODOS los valores son DUMMY / de ejemplo.
+
+repositories {
+    // BAD: maven repo over cleartext http // CACOMI-EXPECT: DependencyRisk / insecureHTTP
+    maven { url "http://repo.insecure.example.com/maven2" }
+
+    // NEGATIVO: maven repo over https // CACOMI-EXPECT: none
+    maven { url "https://repo.maven.apache.org/maven2" }
+}
+
+dependencies {
+    // BAD: wildcard patch version // CACOMI-EXPECT: DependencyRisk (dynamic version)
+    implementation "com.squareup.retrofit2:retrofit:1.+"
+
+    // BAD: "latest.release" dynamic version // CACOMI-EXPECT: DependencyRisk (dynamic version)
+    implementation "com.google.code.gson:gson:latest.release"
+
+    // BAD: open-ended version range // CACOMI-EXPECT: DependencyRisk (dynamic version)
+    implementation "org.apache.commons:commons-lang3:[1.0,2.0)"
+
+    // BAD: dependency pinned to a moving git branch (snapshot) // CACOMI-EXPECT: DependencyRisk
+    implementation "com.example:internal-sdk:1.0.0-SNAPSHOT"
+
+    // NEGATIVO: version fija y pinneada // CACOMI-EXPECT: none
+    implementation "com.squareup.okhttp3:okhttp:4.12.0"
+}
