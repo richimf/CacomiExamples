@@ -15,25 +15,25 @@ import Combine // CACOMI-EXPECT[UnusedImport]: Combine is never referenced in th
 // MARK: - Unused enum
 
 // CACOMI-EXPECT[UnusedCode]: enum is never referenced anywhere
-enum CalculatorOperation: String, CaseIterable {
-    case addition
-    case subtraction
-    case multiplication
-    case division
-
-    var symbol: String {
-        switch self {
-        case .addition: return "+"
-        case .subtraction: return "-"
-        case .multiplication: return "×"
-        case .division: return "÷"
-        }
-    }
-
-    func describe() {
-        print("Operation selected: \(symbol)")
-    }
-}
+// enum CalculatorOperation: String, CaseIterable {
+//     case addition
+//     case subtraction
+//     case multiplication
+//     case division
+// 
+//     var symbol: String {
+//         switch self {
+//         case .addition: return "+"
+//         case .subtraction: return "-"
+//         case .multiplication: return "×"
+//         case .division: return "÷"
+//         }
+//     }
+// 
+//     func describe() {
+//         print("Operation selected: \(symbol)")
+//     }
+// }
 
 // MARK: - Unused struct
 
@@ -45,7 +45,7 @@ struct CalculationHistoryEntry {
     let result: Double
 
     var summary: String {
-        print("Building history summary")
+//         print("Building history summary")
         return "\(first) \(operationSymbol) \(second) = \(result)"
     }
 
@@ -65,7 +65,9 @@ final class CalculationHistoryStore {
     private let logger = Logger(subsystem: "com.example.calculatordemo", category: "history")
 
     func add(_ entry: CalculationHistoryEntry) {
+        #if DEBUG
         print("Adding entry to history store")
+        #endif
         entries.append(entry)
         logger.debug("History count is now \(self.entries.count)")
     }

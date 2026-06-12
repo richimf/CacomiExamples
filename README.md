@@ -106,5 +106,4 @@ The results may include items such as API keys, tokens, private endpoints, crede
 
 ![Security Results](screenshots/11.png)
 
-![Security Code Preview](screenshots/12.png)
 

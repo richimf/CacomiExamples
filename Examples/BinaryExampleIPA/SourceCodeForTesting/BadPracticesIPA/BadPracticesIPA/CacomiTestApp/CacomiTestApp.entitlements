@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- CACOMI-EXPECT[ResilienceFlagRule|high]: keychain-access-groups wildcarded across many bundles -->
+    <key>keychain-access-groups</key>
+    <array>
+        <string>$(AppIdentifierPrefix)*</string>
+        <string>$(AppIdentifierPrefix)com.cacomi.shared</string>
+    </array>
+
+    <!-- CACOMI-EXPECT[ResilienceFlagRule|medium]: development APS environment (debug build) -->
+    <key>aps-environment</key>
+    <string>development</string>
+
+    <!-- CACOMI-EXPECT[ResilienceFlagRule|high]: get-task-allow enables debugger attachment -->
+    <key>get-task-allow</key>
+    <true/>
+
+    <key>application-identifier</key>
+    <string>$(AppIdentifierPrefix)com.cacomi.testapp</string>
+</dict>
+</plist>
