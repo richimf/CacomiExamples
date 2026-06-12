@@ -32,22 +32,22 @@ This repository includes small example projects designed to trigger different pa
 ### Example projects are located in:
 
 ```text
-Examples/SwiftExamples/CalculatorDemo
-Examples/ObjectiveCExamples/CalculatorOld
-
+/Examples
 ```
-**You can review all features at the same time** by scanning the folder: `multilanguage_examples`.
+
+![Examples Folder](screenshots/examplesfolder.png)
+
 
 
 ### Example Binary IPA for Scanning
 
 The following folder contains a sample .ipa file that can be scanned by Cacomi.
 
-You can scan either the **BadPracticeIPA.ipa** file directly or the **BadPracticesIPA** folder.
+You can scan either the **BadPracticesIPA.ipa** file directly or the **BadPracticesIPA** folder.
 
 
 ```text
-Examples/BinaryExampleIPA
+Examples/BinaryExampleIPA/BinaryForTesting
 ```
 
 
