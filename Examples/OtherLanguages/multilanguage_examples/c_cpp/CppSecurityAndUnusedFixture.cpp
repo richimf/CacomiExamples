@@ -122,3 +122,62 @@ int main() {
     fixture.run();
     return 0;
 }
+
+// ===== Cacomi: extra unused-code & logging fixtures =====
+// All values below are FAKE / for testing only.
+
+namespace cacomi_cpp_extra {
+
+// --- Unused import (header include comment marker) ---
+// CACOMI-EXPECT: UnusedCode
+// #include <algorithm>  /* unused_include — present only to exercise unused-import detection */
+
+// --- Unused function ---
+// CACOMI-EXPECT: UnusedCode
+void unused_extra_refresh_token() {
+    std::cout << "unused_extra_refresh_token: cpp-unused-refresh-token-abc123" << std::endl;
+}
+
+// --- Unused variable ---
+// CACOMI-EXPECT: UnusedCode
+static const std::string unused_extra_client_secret = "cpp-unused-extra-client-secret";
+
+// --- Unused type (struct) ---
+// CACOMI-EXPECT: UnusedCode
+struct unused_oauth_config {
+    std::string unused_client_id;
+    std::string unused_client_secret;
+    int         unused_expiry_seconds = 3600;
+};
+
+// --- Unused enum class ---
+// CACOMI-EXPECT: UnusedCode
+enum class unused_log_level {
+    Verbose,
+    Debug,
+    Warn,
+    Error
+};
+
+// --- Print/log positives ---
+// CACOMI-EXPECT: PrintAndLogs
+void debug_dump_credentials(const std::string& email, const std::string& token) {
+    std::cout << "debug_dump_credentials email: " << email << std::endl;
+    std::cout << "debug_dump_credentials token: " << token << std::endl;
+    std::cerr << "debug_dump_credentials PASSWORD: " << cacomi_cpp_fixture::PASSWORD << std::endl;
+    std::cerr << "debug_dump_credentials API_KEY: "  << cacomi_cpp_fixture::API_KEY  << std::endl;
+}
+
+// CACOMI-EXPECT: PrintAndLogs
+void log_jwt_on_startup() {
+    std::cerr << "Startup JWT: "          << cacomi_cpp_fixture::JWT          << std::endl;
+    std::cout << "Startup ACCESS_TOKEN: " << cacomi_cpp_fixture::ACCESS_TOKEN << std::endl;
+}
+
+// --- Negative example: prints a non-sensitive counter value ---
+// CACOMI-EXPECT: none
+void print_item_count(int count) {
+    std::cout << "Items processed: " << count << std::endl;
+}
+
+} // namespace cacomi_cpp_extra

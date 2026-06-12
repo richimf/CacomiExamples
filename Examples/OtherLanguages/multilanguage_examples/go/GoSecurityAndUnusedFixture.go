@@ -123,3 +123,56 @@ func main() {
 	fixture := NewGoSecurityAndUnusedFixture()
 	fixture.Run()
 }
+
+// ===== Cacomi: extra unused-code & logging fixtures =====
+// All values below are FAKE / for testing only.
+
+// --- Unused import (noted inline; Go unused imports are compile errors so marked as comment) ---
+// CACOMI-EXPECT: UnusedCode
+// import "os"  /* unused_import — present only to exercise unused-import detection */
+
+// --- Unused function ---
+// CACOMI-EXPECT: UnusedCode
+func unused_extra_refresh_token() string {
+	log.Println("unused_extra_refresh_token: go-unused-refresh-token-abc123")
+	return "go-unused-refresh-token-abc123"
+}
+
+// --- Unused variable (package-level) ---
+// CACOMI-EXPECT: UnusedCode
+var unused_extra_client_secret = "go-unused-extra-client-secret"
+
+// --- Unused type (struct) ---
+// CACOMI-EXPECT: UnusedCode
+type unused_oauth_config struct {
+	unusedClientID     string
+	unusedClientSecret string
+	unusedExpirySeconds int
+}
+
+// --- Unused interface ---
+// CACOMI-EXPECT: UnusedCode
+type unused_audit_logger interface {
+	unused_logEvent(event string, metadata map[string]string)
+}
+
+// --- Print/log positives ---
+// CACOMI-EXPECT: PrintAndLogs
+func debugDumpCredentials(email, token string) {
+	fmt.Println("debugDumpCredentials email:", email)
+	fmt.Println("debugDumpCredentials token:", token)
+	log.Println("debugDumpCredentials password:", password)
+	log.Println("debugDumpCredentials apiKey:", apiKey)
+}
+
+// CACOMI-EXPECT: PrintAndLogs
+func logJWTOnStartup() {
+	log.Println("Startup JWT:", jwt)
+	fmt.Println("Startup accessToken:", accessToken)
+}
+
+// --- Negative example: prints a non-sensitive counter value ---
+// CACOMI-EXPECT: none
+func printItemCount(count int) {
+	fmt.Println("Items processed:", count)
+}

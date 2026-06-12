@@ -121,3 +121,57 @@ class unused_helper_class {
     console.log("unused_secret:", this.unused_secret);
   }
 }
+
+// ===== Cacomi: extra unused-code & logging fixtures =====
+// All values below are FAKE / for testing only.
+
+// --- Unused import ---
+// CACOMI-EXPECT: UnusedCode
+// import path from "path"; /* unused_import */
+
+// --- Unused function ---
+// CACOMI-EXPECT: UnusedCode
+function unused_extra_refresh_token(): string {
+  console.log("unused_extra_refresh_token: ts-unused-refresh-token-abc123");
+  return "ts-unused-refresh-token-abc123";
+}
+
+// --- Unused variable ---
+// CACOMI-EXPECT: UnusedCode
+const unused_extra_client_secret: string = "ts-unused-extra-client-secret";
+
+// --- Unused interface ---
+// CACOMI-EXPECT: UnusedCode
+interface unused_oauth_config {
+  unusedClientId: string;
+  unusedClientSecret: string;
+  unusedExpiry: number;
+}
+
+// --- Unused type alias ---
+// CACOMI-EXPECT: UnusedCode
+type unused_audit_event =
+  | { kind: "login"; email: string }
+  | { kind: "logout"; userId: string }
+  | { kind: "tokenRefreshed" };
+
+// --- Print/log positives ---
+// CACOMI-EXPECT: PrintAndLogs
+function debugDumpCredentials(email: string, token: string): void {
+  console.log("debugDumpCredentials email:", email);
+  console.log("debugDumpCredentials token:", token);
+  console.debug("debugDumpCredentials PASSWORD:", PASSWORD);
+  console.error("debugDumpCredentials API_KEY:", API_KEY);
+}
+
+// CACOMI-EXPECT: PrintAndLogs
+function logJWTOnStartup(): void {
+  console.error("Startup JWT:", JWT);
+  console.debug("Startup ACCESS_TOKEN:", ACCESS_TOKEN);
+}
+
+// --- Negative example: logs a non-sensitive item count ---
+// CACOMI-EXPECT: none
+function logItemCount(count: number): void {
+  console.log("Items processed:", count);
+}

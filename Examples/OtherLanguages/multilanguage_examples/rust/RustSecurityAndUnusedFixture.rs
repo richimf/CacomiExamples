@@ -128,3 +128,58 @@ macro_rules! unused_log_secret {
 pub fn call_unused_macro() {
     unused_log_secret!(ACCESS_TOKEN);
 }
+
+// ===== Cacomi: extra unused-code & logging fixtures =====
+// All values below are FAKE / for testing only.
+
+// --- Unused import (use statement) ---
+// CACOMI-EXPECT: UnusedCode
+// use std::fmt::Display; // unused_import
+
+// --- Unused function ---
+// CACOMI-EXPECT: UnusedCode
+pub fn unused_extra_refresh_token() -> &'static str {
+    println!("unused_extra_refresh_token: rust-unused-refresh-token-abc123");
+    "rust-unused-refresh-token-abc123"
+}
+
+// --- Unused variable (const) ---
+// CACOMI-EXPECT: UnusedCode
+const UNUSED_EXTRA_CLIENT_SECRET: &str = "rust-unused-extra-client-secret";
+
+// --- Unused struct ---
+// CACOMI-EXPECT: UnusedCode
+pub struct unused_oauth_config {
+    pub unused_client_id: String,
+    pub unused_client_secret: String,
+    pub unused_expiry_seconds: u32,
+}
+
+// --- Unused enum ---
+// CACOMI-EXPECT: UnusedCode
+pub enum unused_audit_event {
+    Login(String),
+    Logout(String),
+    TokenRefreshed,
+}
+
+// --- Print/log positives ---
+// CACOMI-EXPECT: PrintAndLogs
+pub fn debug_dump_credentials(email: &str, token: &str) {
+    println!("debug_dump_credentials email: {}", email);
+    println!("debug_dump_credentials token: {}", token);
+    eprintln!("debug_dump_credentials PASSWORD: {}", PASSWORD);
+    eprintln!("debug_dump_credentials API_KEY: {}", API_KEY);
+}
+
+// CACOMI-EXPECT: PrintAndLogs
+pub fn log_jwt_on_startup() {
+    eprintln!("Startup JWT: {}", JWT);
+    println!("Startup ACCESS_TOKEN: {}", ACCESS_TOKEN);
+}
+
+// --- Negative example: prints a non-sensitive item count ---
+// CACOMI-EXPECT: none
+pub fn print_item_count(count: usize) {
+    println!("Items processed: {}", count);
+}

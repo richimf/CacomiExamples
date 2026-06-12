@@ -137,3 +137,62 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
 }
 
 @end
+
+// ===== Cacomi: extra unused-code & logging fixtures =====
+// All values below are FAKE / for testing only.
+
+// --- Unused import (commented; would be a real #import to exercise unused-import detection) ---
+// CACOMI-EXPECT: UnusedCode
+// #import <MapKit/MapKit.h>  /* unused_import */
+
+// --- Unused function (C-level) ---
+// CACOMI-EXPECT: UnusedCode
+static NSString *unused_extra_refresh_token(void) {
+    return @"objc-unused-refresh-token-abc123";
+}
+
+// --- Unused variable (file-scope) ---
+// CACOMI-EXPECT: UnusedCode
+static NSString *const unused_extra_client_secret = @"objc-unused-extra-client-secret";
+
+// --- Unused struct ---
+// CACOMI-EXPECT: UnusedCode
+typedef struct {
+    const char *unused_client_id;
+    const char *unused_client_secret;
+    int         unused_expiry_seconds;
+} unused_oauth_config_t;
+
+// --- Unused Objective-C class ---
+// CACOMI-EXPECT: UnusedCode
+@interface unused_audit_logger : NSObject
+@property (nonatomic, copy) NSString *unused_session_token;
+- (void)unused_logEvent:(NSString *)event;
+@end
+
+@implementation unused_audit_logger
+- (void)unused_logEvent:(NSString *)event {
+    NSLog(@"unused_audit_logger event: %@  token: %@", event, self.unused_session_token);
+}
+@end
+
+// --- Print/log positives ---
+// CACOMI-EXPECT: PrintAndLogs
+static void debugDumpCredentials(NSString *email, NSString *token) {
+    NSLog(@"debugDumpCredentials email: %@", email);
+    NSLog(@"debugDumpCredentials token: %@", token);
+    printf("debugDumpCredentials password: %s\n", "objc-fake-password-123");
+    NSLog(@"debugDumpCredentials apiKey: %@", @"sk_live_objc_extra_fake_key");
+}
+
+// CACOMI-EXPECT: PrintAndLogs
+static void logJWTOnStartup(NSString *jwt, NSString *accessToken) {
+    NSLog(@"Startup JWT: %@", jwt);
+    printf("Startup ACCESS_TOKEN: %s\n", [accessToken UTF8String]);
+}
+
+// --- Negative example: logs a non-sensitive item count ---
+// CACOMI-EXPECT: none
+static void printItemCount(int count) {
+    printf("Items processed: %d\n", count);
+}

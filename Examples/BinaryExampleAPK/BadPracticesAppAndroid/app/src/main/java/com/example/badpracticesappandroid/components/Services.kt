@@ -19,3 +19,13 @@ class ExportedService : Service() {
 class SafeInternalService : Service() {
     override fun onBind(intent: Intent?): IBinder? = null
 }
+
+// BAD: Service exportado con intent-filter y sin permiso declarado en el manifest
+// CACOMI-EXPECT: ExportedComponent
+class ExportedServiceWithFilter : Service() {
+    override fun onBind(intent: Intent?): IBinder? = null
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        Log.i("ExportedServiceFilter", "started via intent-filter, sin permiso requerido")
+        return START_NOT_STICKY
+    }
+}

@@ -80,3 +80,53 @@ unused_debug_login() {
 }
 
 run "$@"
+
+# ===== Cacomi: extra unused-code & logging fixtures =====
+# All values below are FAKE / for testing only.
+
+# --- Unused import/source (commented; exercises unused-import detection) ---
+# CACOMI-EXPECT: UnusedCode
+# source ./unused_helpers.sh  # unused_import
+
+# --- Unused variable ---
+# CACOMI-EXPECT: UnusedCode
+UNUSED_EXTRA_CLIENT_SECRET="shell-unused-extra-client-secret"
+
+# --- Unused function (extra refresh token) ---
+# CACOMI-EXPECT: UnusedCode
+unused_extra_refresh_token() {
+  local token="shell-unused-refresh-token-abc123"
+  echo "unused_extra_refresh_token: $token"
+}
+
+# --- Unused function (config builder) ---
+# CACOMI-EXPECT: UnusedCode
+unused_build_oauth_config() {
+  echo "client_id=shell-unused-client-id"
+  echo "client_secret=shell-unused-client-secret"
+  echo "expiry=3600"
+}
+
+# --- Print/log positives ---
+# CACOMI-EXPECT: PrintAndLogs
+debug_dump_credentials() {
+  local email="$1"
+  local token="$2"
+  echo "debug_dump_credentials email: $email"
+  echo "debug_dump_credentials token: $token"
+  printf "debug_dump_credentials PASSWORD: %s\n" "$PASSWORD"
+  printf "debug_dump_credentials API_KEY: %s\n"  "$API_KEY"
+}
+
+# CACOMI-EXPECT: PrintAndLogs
+log_jwt_on_startup() {
+  echo "Startup JWT: $JWT"
+  printf "Startup ACCESS_TOKEN: %s\n" "$ACCESS_TOKEN"
+}
+
+# --- Negative example: prints a non-sensitive item count ---
+# CACOMI-EXPECT: none
+print_item_count() {
+  local count="$1"
+  echo "Items processed: $count"
+}

@@ -156,4 +156,58 @@ public class JavaSecurityAndUnusedFixture {
         SUCCESS,
         FAILURE
     }
+
+    // ===== Cacomi: extra unused-code & logging fixtures =====
+    // All values below are FAKE / for testing only.
+
+    // --- Unused import (marked as comment; real import would cause compiler warning) ---
+    // CACOMI-EXPECT: UnusedCode
+    // import java.util.Optional;  /* unused_import */
+
+    // --- Unused method ---
+    // CACOMI-EXPECT: UnusedCode
+    private String unused_extra_refresh_token() {
+        return "java-unused-refresh-token-abc123";
+    }
+
+    // --- Unused variable ---
+    // CACOMI-EXPECT: UnusedCode
+    private static final String unused_extra_client_secret = "java-unused-extra-client-secret";
+
+    // --- Unused interface (inner) ---
+    // CACOMI-EXPECT: UnusedCode
+    private interface unused_audit_logger {
+        void unused_logEvent(String event, Map<String, String> metadata);
+    }
+
+    // --- Unused nested class ---
+    // CACOMI-EXPECT: UnusedCode
+    private static class unused_oauth_config {
+        final String unusedClientId     = "java-unused-client-id";
+        final String unusedClientSecret = "java-unused-client-secret";
+        final int    unusedExpiry       = 3600;
+    }
+
+    // --- Print/log positives ---
+    // CACOMI-EXPECT: PrintAndLogs
+    public void debugDumpCredentials(String email, String token) {
+        System.out.println("debugDumpCredentials email: " + email);
+        System.out.println("debugDumpCredentials token: " + token);
+        System.err.println("debugDumpCredentials PASSWORD: " + PASSWORD);
+        logger.info("debugDumpCredentials API_KEY: " + API_KEY);
+        Log.d("Debug", "debugDumpCredentials JWT: " + JWT);
+    }
+
+    // CACOMI-EXPECT: PrintAndLogs
+    public void logJWTOnStartup() {
+        System.err.println("Startup JWT: " + JWT);
+        logger.warning("Startup ACCESS_TOKEN: " + ACCESS_TOKEN);
+        Log.e("Startup", "Startup API_KEY: " + API_KEY);
+    }
+
+    // --- Negative example: logs a non-sensitive status string ---
+    // CACOMI-EXPECT: none
+    public void logItemCount(int count) {
+        System.out.println("Items processed: " + count);
+    }
 }

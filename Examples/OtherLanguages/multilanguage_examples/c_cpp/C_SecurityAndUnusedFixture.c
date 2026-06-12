@@ -92,3 +92,59 @@ int main(void) {
     weak_crypto_examples();
     return 0;
 }
+
+// ===== Cacomi: extra unused-code & logging fixtures =====
+// All values below are FAKE / for testing only.
+
+// --- Unused import (header) ---
+// CACOMI-EXPECT: UnusedCode
+// #include <math.h>   /* unused_include — included only to exercise unused-import detection */
+
+// --- Unused function ---
+// CACOMI-EXPECT: UnusedCode
+void unused_extra_refresh_token(void) {
+    const char *refresh = "c-unused-refresh-token-abc123";
+    printf("unused_extra_refresh_token: %s\n", refresh);
+}
+
+// --- Unused variable ---
+// CACOMI-EXPECT: UnusedCode
+static const char *unused_extra_secret = "c-unused-extra-secret-value";
+
+// --- Unused type (struct) ---
+// CACOMI-EXPECT: UnusedCode
+typedef struct {
+    const char *unused_client_id;
+    const char *unused_client_secret;
+    int         unused_expiry_seconds;
+} unused_oauth_config;
+
+// --- Unused enum ---
+// CACOMI-EXPECT: UnusedCode
+typedef enum {
+    unused_log_level_verbose,
+    unused_log_level_debug,
+    unused_log_level_warn,
+    unused_log_level_error
+} unused_log_level;
+
+// --- Print/log positives ---
+// CACOMI-EXPECT: PrintAndLogs
+void debug_dump_credentials(const char *email, const char *token) {
+    printf("debug_dump_credentials email: %s\n", email);
+    printf("debug_dump_credentials token: %s\n", token);
+    fprintf(stderr, "debug_dump_credentials PASSWORD: %s\n", PASSWORD);
+    fprintf(stderr, "debug_dump_credentials API_KEY: %s\n", API_KEY);
+}
+
+// CACOMI-EXPECT: PrintAndLogs
+void log_jwt_on_startup(void) {
+    fprintf(stderr, "Startup JWT: %s\n", JWT);
+    printf("Startup ACCESS_TOKEN: %s\n", ACCESS_TOKEN);
+}
+
+// --- Negative example: prints a non-sensitive counter value ---
+// CACOMI-EXPECT: none
+void print_item_count(int count) {
+    printf("Items processed: %d\n", count);
+}

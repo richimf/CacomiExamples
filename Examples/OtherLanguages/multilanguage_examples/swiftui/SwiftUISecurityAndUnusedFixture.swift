@@ -197,3 +197,59 @@ enum SwiftUIP1Misc {
 #Preview {
     SwiftUISecurityAndUnusedFixtureView()
 }
+
+// ===== Cacomi: extra unused-code & logging fixtures =====
+// All values below are FAKE / for testing only.
+
+// --- Unused import (marked as comment; real import exercises unused-import detection) ---
+// CACOMI-EXPECT: UnusedCode
+// import MapKit  // unused_import
+
+// --- Unused function ---
+// CACOMI-EXPECT: UnusedCode
+private func unused_extra_refresh_token() -> String {
+    print("unused_extra_refresh_token: swift-unused-refresh-token-abc123")
+    return "swift-unused-refresh-token-abc123"
+}
+
+// --- Unused variable ---
+// CACOMI-EXPECT: UnusedCode
+private let unused_extra_client_secret = "swift-unused-extra-client-secret"
+
+// --- Unused struct ---
+// CACOMI-EXPECT: UnusedCode
+private struct unused_oauth_config {
+    let unusedClientId: String = "swift-unused-client-id"
+    let unusedClientSecret: String = "swift-unused-client-secret"
+    let unusedExpiry: Int = 3600
+}
+
+// --- Unused enum ---
+// CACOMI-EXPECT: UnusedCode
+private enum unused_audit_event {
+    case login(email: String)
+    case logout(userId: String)
+    case tokenRefreshed
+}
+
+// --- Print/log positives ---
+// CACOMI-EXPECT: PrintAndLogs
+private func debugDumpCredentials(email: String, token: String) {
+    print("debugDumpCredentials email: \(email)")
+    print("debugDumpCredentials token: \(token)")
+    debugPrint("debugDumpCredentials password: swift-fake-password-123")
+    NSLog("debugDumpCredentials apiKey: %@", "sk_live_swift_extra_fake_key")
+}
+
+// CACOMI-EXPECT: PrintAndLogs
+private func logJWTOnStartup(jwt: String, accessToken: String) {
+    NSLog("Startup JWT: %@", jwt)
+    print("Startup accessToken: \(accessToken)")
+    debugPrint("Startup apiKey: sk_live_swiftui_extra_fake_key")
+}
+
+// --- Negative example: prints a non-sensitive item count ---
+// CACOMI-EXPECT: none
+private func logItemCount(_ count: Int) {
+    print("Items processed: \(count)")
+}

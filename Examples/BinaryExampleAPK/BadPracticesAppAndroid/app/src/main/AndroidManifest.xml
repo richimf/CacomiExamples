@@ -22,6 +22,22 @@
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <!-- BAD (Phase E): combinacion de permisos peligrosos tipica de un RAT / payload
+         (SMS + microfono + camara + contactos + registro de llamadas + telefono +
+         ubicacion + estado del telefono). Junto con el componente de firma de abajo,
+         el APK queda como payload de acceso remoto. NOTA: cuando hay coincidencia de
+         FIRMA (com.metasploit.stage.*), AndroidPayloadSignatureRule reporta el hallazgo
+         critico y NO emite ademas el heuristico de combo; si se quita el componente de
+         firma, este combo (>=9) dispararia "Over-privileged RAT (high)".
+         // CACOMI-EXPECT: PrivacyPermission (cada permiso) + arma el heuristico RAT -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -104,6 +120,41 @@
         <service
             android:name=".components.SafeInternalService"
             android:exported="false" />
+
+        <!-- BAD: Activity exportada sin permiso con intent-filter de accion personalizada.
+             Cualquier app puede invocarla y enviarle datos arbitrarios (M4/M6).
+             CACOMI-EXPECT: ExportedComponent -->
+        <activity
+            android:name=".components.ExportedDeepLinkReceiverActivity"
+            android:exported="true"
+            tools:ignore="ExportedActivity">
+            <intent-filter>
+                <action android:name="com.example.badpracticesappandroid.action.OPEN_SCREEN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- BAD: Service exportado con intent-filter sin android:permission (M6).
+             Un proceso externo puede bindear o iniciar este servicio libremente.
+             CACOMI-EXPECT: ExportedComponent -->
+        <service
+            android:name=".components.ExportedServiceWithFilter"
+            android:exported="true"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="com.example.badpracticesappandroid.action.SYNC" />
+            </intent-filter>
+        </service>
+
+        <!-- BAD (Phase E): componente cuyo nombre coincide con la firma del payload
+             Android de Metasploit / msfvenom (paquete `com.metasploit.stage.*`). El walk
+             del manifest marca el APK como payload de acceso remoto conocido (RAT).
+             Clase stub inerte en app/src/main/java/com/metasploit/stage/MainService.kt.
+             // CACOMI-EXPECT: Known Metasploit / msfvenom Android payload (malwarePayload, critical, CWE-506) -->
+        <service
+            android:name="com.metasploit.stage.MainService"
+            android:exported="true"
+            tools:ignore="ExportedService" />
 
     </application>
 

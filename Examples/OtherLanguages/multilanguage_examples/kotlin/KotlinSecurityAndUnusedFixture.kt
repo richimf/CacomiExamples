@@ -207,3 +207,58 @@ fun conditionalLog(password: String, debugFlag: Boolean) {
         Log.e("Auth", "password=$password")
     }
 }
+
+// ===== Cacomi: extra unused-code & logging fixtures =====
+// All values below are FAKE / for testing only.
+
+// --- Unused import (marked as comment; real import would trigger unused-import lint) ---
+// CACOMI-EXPECT: UnusedCode
+// import java.util.UUID  /* unused_import */
+
+// --- Unused function ---
+// CACOMI-EXPECT: UnusedCode
+fun unused_extra_refresh_token(): String {
+    Log.d("Unused", "unused_extra_refresh_token: kotlin-unused-refresh-token-abc123")
+    return "kotlin-unused-refresh-token-abc123"
+}
+
+// --- Unused variable ---
+// CACOMI-EXPECT: UnusedCode
+val unused_extra_client_secret = "kotlin-unused-extra-client-secret"
+
+// --- Unused data class ---
+// CACOMI-EXPECT: UnusedCode
+data class unused_oauth_config(
+    val unusedClientId: String = "kotlin-unused-client-id",
+    val unusedClientSecret: String = "kotlin-unused-client-secret",
+    val unusedExpiry: Int = 3600
+)
+
+// --- Unused sealed class ---
+// CACOMI-EXPECT: UnusedCode
+sealed class unused_audit_event {
+    data class Login(val email: String) : unused_audit_event()
+    data class Logout(val userId: String) : unused_audit_event()
+    object TokenRefreshed : unused_audit_event()
+}
+
+// --- Print/log positives ---
+// CACOMI-EXPECT: PrintAndLogs
+fun debugDumpCredentials(email: String, token: String) {
+    println("debugDumpCredentials email: $email")
+    println("debugDumpCredentials token: $token")
+    Log.d("Debug", "debugDumpCredentials password: ${KotlinSecurityAndUnusedFixture().toString()}")
+    Log.e("Debug", "debugDumpCredentials apiKey: sk_live_kotlin_extra_fake_key")
+}
+
+// CACOMI-EXPECT: PrintAndLogs
+fun logJWTOnStartup(jwt: String, apiKey: String) {
+    println("Startup JWT: $jwt")
+    Log.e("Startup", "Startup API key: $apiKey")
+}
+
+// --- Negative example: logs a non-sensitive item count ---
+// CACOMI-EXPECT: none
+fun logItemCount(count: Int) {
+    println("Items processed: $count")
+}

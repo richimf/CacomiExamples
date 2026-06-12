@@ -37,4 +37,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+// ===== Cacomi: extra unused-code declarations =====
+// CACOMI-EXPECT: UnusedCode
+@interface unused_audit_logger : NSObject
+@property (nonatomic, copy) NSString *unused_session_token;
+- (void)unused_logEvent:(NSString *)event;
+@end
+
 NS_ASSUME_NONNULL_END

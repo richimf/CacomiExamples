@@ -95,3 +95,28 @@ El proyecto mantiene la estructura y plugins originales de Android Studio (AGP 9
 Cambios de build: se habilitó `buildConfig`, se añadieron 3 dependencias y reglas de
 release. No se modificó nada que rompa el grafo de plugins existente. Genera **APK y AAB**
 para cubrir los hallazgos que solo se ven en el binario (manifest AXML + literales en DEX).
+
+## Binario embebido — fases B–E (ruleset 2026.06.13/.14)
+
+Fixtures sintéticos **inertes** (de `Cacomixtle/ValidationFixtures/binary/`) embebidos para
+ejercitar los escáneres de recursos/binario del APK. Ruta interna **neutral** (`appdata/`,
+no `fixtures/test/mock`) para que no se degraden por `TestFixtureFilter`.
+
+| Archivo | Familia / regla | Detección esperada |
+|---|---|---|
+| `assets/appdata/leaked_rsa_key.pem` | EmbeddedArtifactClassifier (C) | Private key — critical (CWE-312/321) |
+| `assets/appdata/keystore.p12` | EmbeddedArtifactClassifier (C) | PKCS#12 — critical |
+| `assets/appdata/release.jks` | EmbeddedArtifactClassifier (C) | Java KeyStore — high |
+| `assets/appdata/app.bks` · `signing.key` | EmbeddedArtifactClassifier (C) | Keystore / Key file — high |
+| `assets/appdata/users.sqlite` · `cache.db` | EmbeddedArtifactClassifier (D) | Cleartext SQLite — high / medium |
+| `assets/appdata/vault.realm` | EmbeddedArtifactClassifier (D) | Realm — medium |
+| `assets/appdata/public_key.pem` · `secure_sqlcipher.db` | — | **negativos** (no se marcan) |
+| `assets/appdata/exec_stack.so` | APKNativeELFScanner (B) | Executable stack — high (CWE-693) |
+| `assets/appdata/textrel.so` | APKNativeELFScanner (B) | Text relocations — medium |
+| `assets/appdata/insecure_funcs.so` | APKNativeELFScanner (B) | memory-unsafe / command-exec — high |
+| `assets/appdata/hardened.so` | — | **negativo** (RELRO + canary) |
+| `AndroidManifest.xml` + `java/com/metasploit/stage/MainService.kt` | AndroidPayloadSignatureRule (E) | Known Metasploit payload — critical (CWE-506) |
+
+> Los `.so` viven en `assets/` (no `lib/`) a propósito: `APKNativeELFScanner` recorre **todo**
+> `.so` del APK y `assets/` se empaqueta verbatim (sin `strip`), preservando los bytes del
+> fixture. Las fases F (MASA-L1 / CWE Top 25) se agregan solas en el reporte.

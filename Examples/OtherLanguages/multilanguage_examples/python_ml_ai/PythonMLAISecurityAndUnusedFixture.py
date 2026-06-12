@@ -148,3 +148,62 @@ def unused_debug_prediction() -> Dict[str, float]:
 if __name__ == "__main__":
     fixture = PythonMLAISecurityAndUnusedFixture()
     print(fixture.run_pipeline("Classify this user email: tester@example.com"))
+
+# ===== Cacomi: extra unused-code & logging fixtures =====
+# All values below are FAKE / for testing only.
+
+# --- Unused import ---
+# CACOMI-EXPECT: UnusedCode
+# import pickle  # unused_import
+
+# --- Unused function ---
+# CACOMI-EXPECT: UnusedCode
+def unused_extra_refresh_token() -> str:
+    print(f"unused_extra_refresh_token: python-unused-refresh-token-abc123")
+    return "python-unused-refresh-token-abc123"
+
+
+# --- Unused variable ---
+# CACOMI-EXPECT: UnusedCode
+unused_extra_client_secret = "python-unused-extra-client-secret"
+
+
+# --- Unused class ---
+# CACOMI-EXPECT: UnusedCode
+class unused_oauth_config:
+    unused_client_id: str = "python-unused-client-id"
+    unused_client_secret: str = "python-unused-client-secret"
+    unused_expiry: int = 3600
+
+
+# --- Unused dataclass ---
+# CACOMI-EXPECT: UnusedCode
+from dataclasses import dataclass as _dataclass
+
+
+@_dataclass
+class unused_audit_event:
+    unused_event_type: str
+    unused_session_token: str
+    unused_user_id: str
+
+
+# --- Print/log positives ---
+# CACOMI-EXPECT: PrintAndLogs
+def debug_dump_credentials(email: str, token: str) -> None:
+    print(f"debug_dump_credentials email: {email}")
+    print(f"debug_dump_credentials token: {token}")
+    logging.debug("debug_dump_credentials PASSWORD: %s", PASSWORD)
+    logging.warning("debug_dump_credentials API_KEY: %s", OPENAI_API_KEY)
+
+
+# CACOMI-EXPECT: PrintAndLogs
+def log_jwt_on_startup() -> None:
+    print(f"Startup JWT: {JWT}")
+    logging.debug("Startup HUGGINGFACE_TOKEN: %s", HUGGINGFACE_TOKEN)
+
+
+# --- Negative example: logs a non-sensitive item count ---
+# CACOMI-EXPECT: none
+def log_item_count(count: int) -> None:
+    print(f"Items processed: {count}")
